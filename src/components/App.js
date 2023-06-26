@@ -16,6 +16,16 @@ useEffect(() => {
   return (
   <div>
     <h1 className='title'>Frases de Friends</h1>
+    <label htmlFor="character">Filtrar por personaje  </label>
+    <select name="character" id="character">
+      <option value="Todos">Todos</option>
+      <option value="Ross">Ross</option>
+      <option value="Monica">Monica</option>
+      <option value="Joey">Joey</option>
+      <option value="Phoebe">Phoebe</option>
+      <option value="Chandler">Chandler</option>
+      <option value="Rachel">Rachel</option>
+    </select>
     {list.map((quote, index) => (
       <ul key={index} className='list'>
         <li className='list__items'>{quote.character} {quote.quote}</li>
