@@ -17,8 +17,8 @@ useEffect(() => {
   <div>
     <h1 className='title'>Frases de Friends</h1>
     {list.map((quote, index) => (
-      <ul key={index}>
-        <li >{quote.character} {quote.quote}</li>
+      <ul key={index} className='list'>
+        <li className='list__items'>{quote.character} {quote.quote}</li>
       </ul>
     ))}
   </div>
