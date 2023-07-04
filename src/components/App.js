@@ -6,6 +6,7 @@ function App() {
   const [list, setList] = useState([]);
   const [nameSelect, setNameSelect] = useState('');
   const [quoteSelect, setQuoteSelect] = useState('');
+  const [filterQuote, setFilterQuote] = useState('');
 
   //useEffect
   useEffect(() => {
@@ -25,40 +26,19 @@ function App() {
     setQuoteSelect(event.target.value);
   };
 
-  //functions
-  const renderByNameList = () => {
-    if (nameSelect === '') {
-      return list.map((quote, index) => (
-        <ul key={index} className='list'>
-          <li className='list__items'>
-            {quote.character} {quote.quote}
-          </li>
-        </ul>
-      ));
-    } else {
-      const filteredList = list.filter(
-        (eachCharacter) => eachCharacter.character === nameSelect
-      );
-      return filteredList.map((quote, index) => (
-        <ul key={index} className='list'>
-          <li className='list__items'>
-            {quote.character} {quote.quote}
-          </li>
-        </ul>
-      ));
-    }
-  };
-
-  const renderByQuoteList = () => {
-    const filteredQuoteList = list.filter((eachQuote) =>
-      eachQuote.quote.toLowerCase().includes(quoteSelect.toLowerCase())
-    );
-    return filteredQuoteList.map((quote, index) => (
-      <li key={index} className='list__items'>
-        {quote.character} {quote.quote}
-      </li>
-    ));
-  };
+  const renderQuotes = ()=>{
+  return list.filter((quote) =>{
+    return quote.quote.toLowerCase().includes(filterQuote.toLowerCase());
+  })
+  .filter((quote)=> {
+    return quote.character.toLowerCase().includes(nameSelect.toLowerCase());
+  })
+  .map((quote, idx)=>{
+  return <li className='list__items'key={quote, idx}>{quote.quote}
+  {quote.character}
+  </li>
+})
+}
 
   return (
     <div>
@@ -91,11 +71,11 @@ function App() {
           />
         </form>
       </section>
-      {renderByNameList()}
-      <ul className='list'>{renderByQuoteList()}</ul>
+
+      <ul className='list'>{renderQuotes()}</ul>
     </div>
   );
 }
 
-/* export*/
 export default App;
+
