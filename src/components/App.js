@@ -83,11 +83,12 @@ function App() {
         </form>
         <form>
           <label htmlFor='text'>Filtrar por frase </label>
-          <input 
-          id='text'
-          type='text' 
-          value={quoteSelect} 
-          onChange={handleQuoteSelect} />
+          <input
+            id='text'
+            type='text'
+            value={quoteSelect}
+            onChange={handleQuoteSelect}
+          />
         </form>
       </section>
       {renderByNameList()}
