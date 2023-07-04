@@ -67,7 +67,7 @@ function App() {
     <div>
       <h1 className='title'>Frases de Friends</h1>
       <section>
-        <div>
+        <form>
           <label htmlFor='character'>Filtrar por personaje </label>
           <select
             name='character'
@@ -83,12 +83,12 @@ function App() {
             <option value='Chandler'>Chandler</option>
             <option value='Rachel'>Rachel</option>
           </select>
-        </div>
-        <div>
+        </form>
+        <form>
           <label htmlFor=''>Filtrar por frase </label>
           <input type='text' value={quoteSelect} onChange={handleQuoteSelect} />
         
-        </div>
+        </form>
       </section>
       {renderByNameList()}
      <ul  className='list'>
