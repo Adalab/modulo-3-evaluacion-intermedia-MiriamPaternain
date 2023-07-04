@@ -5,7 +5,7 @@ function App() {
   //estados
   const [list, setList] = useState([]);
   const [nameSelect, setNameSelect] = useState('');
-  const [quoteSelect, setQuoteSelect] = useState ('');
+  const [quoteSelect, setQuoteSelect] = useState('');
 
   //useEffect
   useEffect(() => {
@@ -24,7 +24,6 @@ function App() {
   const handleQuoteSelect = (event) => {
     setQuoteSelect(event.target.value);
   };
-
 
   //functions
   const renderByNameList = () => {
@@ -51,17 +50,15 @@ function App() {
   };
 
   const renderByQuoteList = () => {
-    const filteredQuoteList = list.filter(
-      (eachQuote) => eachQuote.quote.toLowerCase().includes(quoteSelect.toLowerCase()));
+    const filteredQuoteList = list.filter((eachQuote) =>
+      eachQuote.quote.toLowerCase().includes(quoteSelect.toLowerCase())
+    );
     return filteredQuoteList.map((quote, index) => (
-      
-          <li key={index} className='list__items'>
-            {quote.character} {quote.quote}
-          </li>
-        
+      <li key={index} className='list__items'>
+        {quote.character} {quote.quote}
+      </li>
     ));
   };
-
 
   return (
     <div>
@@ -85,15 +82,16 @@ function App() {
           </select>
         </form>
         <form>
-          <label htmlFor=''>Filtrar por frase </label>
-          <input type='text' value={quoteSelect} onChange={handleQuoteSelect} />
-        
+          <label htmlFor='text'>Filtrar por frase </label>
+          <input 
+          id='text'
+          type='text' 
+          value={quoteSelect} 
+          onChange={handleQuoteSelect} />
         </form>
       </section>
       {renderByNameList()}
-     <ul  className='list'>
-      {renderByQuoteList()}
-      </ul>
+      <ul className='list'>{renderByQuoteList()}</ul>
     </div>
   );
 }
