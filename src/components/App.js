@@ -54,11 +54,11 @@ function App() {
     const filteredQuoteList = list.filter(
       (eachQuote) => eachQuote.quote.toLowerCase().includes(quoteSelect.toLowerCase()));
     return filteredQuoteList.map((quote, index) => (
-      <ul key={index} className='list'>
-          <li className='list__items'>
+      
+          <li key={index} className='list__items'>
             {quote.character} {quote.quote}
           </li>
-        </ul>
+        
     ));
   };
 
@@ -91,8 +91,9 @@ function App() {
         </div>
       </section>
       {renderByNameList()}
-     
+     <ul  className='list'>
       {renderByQuoteList()}
+      </ul>
     </div>
   );
 }
